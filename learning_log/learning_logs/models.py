@@ -11,14 +11,14 @@ class Topic(models.Model):
 
 class Entry(models.Model):
     # Information
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    text = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE) # Get topic by key
+    text = models.TextField() # Add text
+    date_added = models.DateTimeField(auto_now_add=True) #Add date
 
     class Meta:
         verbose_name_plural = 'entries'
 
     def __str__(self):
-        if self.text.length < 50:
+        if self.text.length < 50: #Check length
             return f"{self.text}"
         return f"{self.text[:50]}..."
